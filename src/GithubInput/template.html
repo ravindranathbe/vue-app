@@ -1,0 +1,7 @@
+<div>
+	<h2>{{ app_title }}</h2>	
+	<form v-on:submit.prevent="onSubmit">
+  		<input type="text" v-model="username" placeholder="Enter a github username here" />
+  		<button type="submit">Go!</button>
+	</form>
+</div>

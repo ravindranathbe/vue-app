@@ -1,0 +1,14 @@
+<div>
+  <p v-if="currentUsername == null">
+    Enter a username above to see their Github data
+  </p>
+  <p v-else>
+    Below are the results for {{ currentUsername }}
+    <github-user :data="githubData[currentUsername]"></github-user>
+    <!--div v-if="githubData[currentUsername]">
+  		<h4>{{ githubData[currentUsername].name }}</h4>
+  		<p>{{ githubData[currentUsername].company }}</p>
+  		<p>Number of repos: {{ githubData[currentUsername].public_repos }}
+	</div-->
+  </p>
+</div>
