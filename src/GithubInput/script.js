@@ -1,3 +1,4 @@
+import Vuex from 'Vuex';
 import bus from '../bus';
 
 export default {
