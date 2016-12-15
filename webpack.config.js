@@ -1,5 +1,6 @@
 module.exports = {
-  entry: './src/main',
+  // entry: './src/main', // Vue App
+  entry: './notesapp/main', // Notes App
   output: {
     path: './build',
     filename: 'main.js',
