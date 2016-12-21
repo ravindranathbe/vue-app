@@ -1,6 +1,7 @@
 module.exports = {
   // entry: './src/main', // Vue App
-  entry: './notesapp/main', // Notes App
+  // entry: './notesapp/main', // Notes App
+  entry: './testapp/main', // Test App
   output: {
     path: './build',
     filename: 'main.js',
@@ -23,4 +24,9 @@ module.exports = {
       js: 'babel',
     },
   },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.common.js'
+    }
+  }
 }
