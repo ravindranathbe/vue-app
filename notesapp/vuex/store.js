@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 Vue.use(Vuex)
 
 const state = {
   notes: [],
-  activeNote: {}
+  activeNote: {
+    text: '',
+    favorite: false
+  }
 }
 
 const mutations = {
@@ -14,6 +16,7 @@ const mutations = {
       text: 'New note',
       favorite: false
     }
+
     state.notes.push(newNote)
     state.activeNote = newNote
   },
@@ -23,6 +26,7 @@ const mutations = {
   },
 
   DELETE_NOTE (state) {
+    console.log(state.notes);
     state.notes.$remove(state.activeNote)
     state.activeNote = state.notes[0]
   },
@@ -36,7 +40,13 @@ const mutations = {
   }
 }
 
-export default new Vuex.Store({
+const getters = {
+  notes: state => state.notes,
+  activeNote: state => state.activeNote
+}
+
+export const store = new Vuex.Store({
   state,
-  mutations
+  mutations,
+  getters
 })

@@ -1,19 +1,22 @@
-export const addNote = ({ dispatch }) => {
-  dispatch('ADD_NOTE')
+import Vuex from 'vuex'
+import { store } from './store'
+
+export const addNote = () => {
+  store.commit('ADD_NOTE')
 }
 
-export const editNote = ({ dispatch }, e) => {
-  dispatch('EDIT_NOTE', e.target.value)
+export const editNote = (e) => {
+  store.commit('EDIT_NOTE', e.target.value)
 }
 
-export const deleteNote = ({ dispatch }) => {
-  dispatch('DELETE_NOTE')
+export const deleteNote = () => {
+  store.commit('DELETE_NOTE')
 }
 
-export const updateActiveNote = ({ dispatch }, note) => {
-  dispatch('SET_ACTIVE_NOTE', note)
+export const updateActiveNote = (note) => {
+  store.commit('SET_ACTIVE_NOTE', note)
 }
 
-export const toggleFavorite = ({ dispatch }) => {
-  dispatch('TOGGLE_FAVORITE')
+export const toggleFavorite = () => {
+  store.commit('TOGGLE_FAVORITE')
 }

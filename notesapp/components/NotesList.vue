@@ -26,8 +26,8 @@
     <div class="container">
       <div class="list-group">
         <a v-for="note in filteredNotes"
-          class="list-group-item" href="#"
-          :class="{active: activeNote === note}"
+          class="list-group-item" href="javascript:void(0);"
+          :class="{active: activeNote() === note}"
           @click="updateActiveNote(note)">
           <h4 class="list-group-item-heading">
             {{note.text.trim().substring(0, 30)}}
@@ -41,22 +41,23 @@
 
 <script>
 import { updateActiveNote } from '../vuex/actions'
+import { store } from '../vuex/store'
+
 export default {
   data () {
     return {
-      show: 'all'
+      show: 'all',
+      // notes: state => store.state.notes,
+      activeNote: state => store.state.activeNote
     }
   },
-  vuex: {
-    getters: {
-      notes: state => state.notes,
-      activeNote: state => state.activeNote
-    },
-    actions: {
-      updateActiveNote
-    }
+  methods: {
+    updateActiveNote
   },
   computed: {
+    notes() {
+      return store.state.notes;
+    },
     filteredNotes () {
       if (this.show === 'all'){
         return this.notes
