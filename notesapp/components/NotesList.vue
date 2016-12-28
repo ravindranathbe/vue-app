@@ -47,7 +47,6 @@ export default {
   data () {
     return {
       show: 'all',
-      // notes: state => store.state.notes,
       activeNote: state => store.state.activeNote
     }
   },

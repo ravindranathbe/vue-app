@@ -2,8 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-var _ = require('lodash')
-
 const state = {
   notes: [],
   activeNote: {
@@ -28,7 +26,7 @@ const mutations = {
   },
 
   DELETE_NOTE (state) {
-    _.remove(state.notes, state.activeNote)
+    state.notes.splice(state.notes.indexOf(state.activeNote), 1)
     state.activeNote = state.notes[0]
   },
 
